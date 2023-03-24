@@ -62,6 +62,42 @@ export class NgxEncryptStorageService {
     }
   }
 
+  // For clear all local storage
+  public clearAllLocalStorage() {
+    try {
+      localStorage.clear()
+    } catch (error) {
+      return error;
+    }
+  }
+
+  // For clear all session storage
+  public clearAllSessionStorage() {
+    try {
+      sessionStorage.clear()
+    } catch (error) {
+      return error;
+    }
+  }
+
+  // For remove item from session storage by key
+  public clearSessionStorageByKey(keyName:string) {
+    try {
+      sessionStorage.removeItem(keyName);
+    } catch (error) {
+      return error;
+    }
+  }
+
+  // For remove item from local storage by key
+  public clearLocalStorageByKey(keyName:string) {
+    try {
+      localStorage.removeItem(keyName);
+    } catch (error) {
+      return error;
+    }
+  }
+
   // For encrypt data
   public encrypt(txt: string, encryptKey: string) {
     return CryptoJS.AES.encrypt(txt, encryptKey).toString();
