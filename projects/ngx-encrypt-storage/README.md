@@ -2,23 +2,57 @@
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
-## Code scaffolding
+# Installation
 
-Run `ng generate component component-name --project ngx-encrypt-storage` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-encrypt-storage`.
-> Note: Don't forget to add `--project ngx-encrypt-storage` or else it will be added to the default project in your `angular.json` file. 
+```
+npm i ngx-encrypt-storage --save
+```
+## Inject in component
 
-## Build
+- you can import in component level to use as singleton service.
 
-Run `ng build ngx-encrypt-storage` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Publishing
+```
+....
+import { NgxEncryptStorageService } from 'ngx-encrypt-storage';
 
-After building your library with `ng build ngx-encrypt-storage`, go to the dist folder `cd dist/ngx-encrypt-storage` and run `npm publish`.
+@Component({
+  ......
+  providers: [NgxEncryptStorageService]
+})
+export class AppComponent {
 
-## Running unit tests
+  constructor(
+    private storageService:NgxEncryptStorageService,
+  ){
+    this.loadData();
+  }
+  loadData(){
+    // for local storage
+    this.storageService.setLocalStorageItem('keyName', 'obj','encryptKey');
+  }
+}
 
-Run `ng test ngx-encrypt-storage` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
 
-## Further help
+## API
+### Inputs
+| Input | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| keyName | string | true | key used to store data |
+| obj | any | true | value what need to store |
+| encryptKey | string | false | if provide encryptKey then it will convert data to encrypted format else normal data will store |
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Methods
+| Name | Params | Description | 
+| ----- | ----- | ----- |
+| setLocalStorageItem | keyName(required), obj(required), encryptKey(optional) | To store value in local storage |
+| getLocalStorageItem | keyName(required), encryptKey(optional) | To get value from local storage |
+| setSessionStorageItem | keyName(required), obj(required), encryptKey(optional) | To store value in session storage |
+| getSessionStorageItem | keyName(required), encryptKey(optional) | To get value from session storage |
+| clearLocalStorageByKey | keyName(required) | For remove item from local storage |
+| clearSessionStorageByKey | keyName(required) | For remove item from session storage |
+| clearAllLocalStorage | - | For remove all items form local storage |
+| clearAllSessionStorage | - | For remove all items form session storage |
+

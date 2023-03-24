@@ -1,6 +1,6 @@
 {
   "name": "ngx-encrypt-storage",
-  "version": "0.0.2",
+  "version": "1.0.1",
   "peerDependencies": {
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0"
@@ -11,5 +11,25 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.1.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SFLFETeam/ngx-encrypt-storage"
+},
+  "keywords": [
+    "localStorage",
+    "sessionStorage",
+    "encryption",
+    "encrypt service",
+    "angular service",
+    "secure service",
+    "ngx service service",
+    "ngx encryption"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "sfl-fe-team",
+    "email": "sfl.feteam@thesunflowerlab.com",
+    "git": "https://github.com/SFLFETeam"
+}
 }
