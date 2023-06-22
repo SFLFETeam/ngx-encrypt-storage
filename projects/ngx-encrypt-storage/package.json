@@ -1,6 +1,6 @@
 {
   "name": "ngx-encrypt-storage",
-  "version": "1.0.1",
+  "version": "15.0.0",
   "peerDependencies": {
     "@angular/common": "^15.0.0",
     "@angular/core": "^15.0.0"
@@ -24,7 +24,8 @@
     "angular service",
     "secure service",
     "ngx service service",
-    "ngx encryption"
+    "ngx encryption",
+    "ngx encrypt storage service"
   ],
   "license": "MIT",
   "author": {

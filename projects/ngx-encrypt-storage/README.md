@@ -11,6 +11,12 @@ npm i ngx-encrypt-storage --save
 
 - you can import in component level to use as singleton service.
 
+## Version support
+
+| Angular version | library version |
+| ----- | ----- |
+| 15 | 15.0.0 |
+
 ## Usage
 
 ```
