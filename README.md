@@ -15,7 +15,8 @@ npm i ngx-encrypt-storage --save
 
 | Angular version | library version |
 | ----- | ----- |
-| 15 | 15.0.0 |
+| 15 | 15.x |
+| 16 | 16.x |
 
 ## Usage
 
