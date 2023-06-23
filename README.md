@@ -1,27 +1,64 @@
-# AngularApp
+# NgxEncryptStorage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
-## Development server
+# Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```
+npm i ngx-encrypt-storage --save
+```
+## Inject in component
 
-## Code scaffolding
+- you can import in component level to use as singleton service.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Version support
 
-## Build
+| Angular version | library version |
+| ----- | ----- |
+| 15 | 15.0.0 |
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Running unit tests
+```
+....
+import { NgxEncryptStorageService } from 'ngx-encrypt-storage';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@Component({
+  ......
+  providers: [NgxEncryptStorageService]
+})
+export class AppComponent {
 
-## Running end-to-end tests
+  constructor(
+    private storageService:NgxEncryptStorageService,
+  ){
+    this.loadData();
+  }
+  loadData(){
+    // for local storage
+    this.storageService.setLocalStorageItem('keyName', 'obj','encryptKey');
+  }
+}
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
 
-## Further help
+## API
+### Inputs
+| Input | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| keyName | string | true | key used to store data |
+| obj | any | true | value what need to store |
+| encryptKey | string | false | if provide encryptKey then it will convert data to encrypted format else normal data will store |
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Methods
+| Name | Params | Description | 
+| ----- | ----- | ----- |
+| setLocalStorageItem | keyName(required), obj(required), encryptKey(optional) | To store value in local storage |
+| getLocalStorageItem | keyName(required), encryptKey(optional) | To get value from local storage |
+| setSessionStorageItem | keyName(required), obj(required), encryptKey(optional) | To store value in session storage |
+| getSessionStorageItem | keyName(required), encryptKey(optional) | To get value from session storage |
+| clearLocalStorageByKey | keyName(required) | For remove item from local storage |
+| clearSessionStorageByKey | keyName(required) | For remove item from session storage |
+| clearAllLocalStorage | - | For remove all items form local storage |
+| clearAllSessionStorage | - | For remove all items form session storage |
+
