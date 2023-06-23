@@ -1,6 +1,6 @@
 # NgxEncryptStorage
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 # Installation
 
@@ -10,6 +10,12 @@ npm i ngx-encrypt-storage --save
 ## Inject in component
 
 - you can import in component level to use as singleton service.
+
+## Version support
+
+| Angular version | library version |
+| ----- | ----- |
+| 15 | 15.0.0 |
 
 ## Usage
 
